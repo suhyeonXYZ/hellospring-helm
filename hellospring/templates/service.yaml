@@ -3,12 +3,12 @@ kind: Service
 metadata:
   name: {{ include "hellospring.fullname" . }}
   labels:
-    app: backend
+    app: {{ .Values.labels.app }}
 spec:
   type: {{ .Values.service.type }}
   ports:
     - port: 3000
       targetPort: 3000
   selector:
-    app: backend
+    app: {{ .Values.labels.app }}
 

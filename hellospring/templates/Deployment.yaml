@@ -3,16 +3,16 @@ kind: Deployment
 metadata:
   name: {{ include "hellospring.fullname" . }}
   labels:
-    app: backend
+    app: {{ .Values.labels.app }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: backend
+      app: {{ .Values.labels.app }}
   template:
     metadata:
       labels:
-        app: backend
+        app: {{ .Values.labels.app }}
     spec:
       containers:
         - name: {{ include "hellospring.name" . }}

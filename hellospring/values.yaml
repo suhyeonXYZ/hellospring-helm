@@ -11,11 +11,5 @@ service:
   type: ClusterIP
   port: 3000  # 컨테이너 포트를 3000으로 설정
 
-ingress:
-  enabled: true
-  path: /hello 
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target:/ 
-
 labels:
   app: backend

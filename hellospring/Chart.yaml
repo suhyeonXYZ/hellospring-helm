@@ -10,8 +10,4 @@ keywords:
   - java
 sources:
   - https://github.com/suhyeonXYZ/hellospring 
-dependencies: 
-  - name: ingress-nginx
-    version: ">=3.6.0"  
-    repository: "https://kubernetes.github.io/ingress-nginx"
 

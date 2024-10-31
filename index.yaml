@@ -3,13 +3,9 @@ entries:
   hellospring:
   - apiVersion: v2
     appVersion: "1.0"
-    created: "2024-10-31T02:16:46.96121+09:00"
-    dependencies:
-    - name: ingress-nginx
-      repository: https://kubernetes.github.io/ingress-nginx
-      version: '>=3.6.0'
+    created: "2024-10-31T10:51:10.304082+09:00"
     description: A Helm chart for deploying a Spring Boot application
-    digest: 8edc1e9be00685c1ed02b04cfb0dcf7211a24dd0938287dab212c59d0dd1fabc
+    digest: c759caae5d1e9409b399cedb303c6285e1f386eb1541bda8abeac6fd2efe2342
     keywords:
     - spring
     - boot
@@ -21,4 +17,4 @@ entries:
     urls:
     - https://suhyeonxyz.github.io/hellospring-helm/hellospring-0.1.0.tgz
     version: 0.1.0
-generated: "2024-10-31T02:16:46.95746+09:00"
+generated: "2024-10-31T10:51:10.303609+09:00"

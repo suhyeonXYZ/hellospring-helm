@@ -8,7 +8,7 @@ spec:
   type: {{ .Values.service.type }}
   ports:
     - port: 3000
-      targetPort: 3000
+      targetPort: 8080
   selector:
     app: {{ .Values.labels.app }}
 
@@ -25,6 +25,6 @@ spec:
   type: {{ .Values.service.type }}
   ports:
     - port: 3000
-      targetPort: 3000
+      targetPort: 8080
   selector:
     app: {{ .Values.labels.app }}

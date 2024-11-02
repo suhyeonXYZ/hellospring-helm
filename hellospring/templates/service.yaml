@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "hellospring.name" . }}-green
+  name: {{ include "hellospring.name" . }}-active
   labels:
     app: {{ .Values.labels.app }}
 spec:
@@ -18,7 +18,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "hellospring.name" . }}-blue
+  name: {{ include "hellospring.name" . }}-canary
   labels:
     app: {{ .Values.labels.app }}
 spec:

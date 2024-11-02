@@ -13,6 +13,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: {{ include "hellospring.name" . }}-green
+                name: {{ include "hellospring.name" . }}-active
                 port:
                   number: {{ .Values.service.port }}

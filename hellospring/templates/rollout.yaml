@@ -23,7 +23,11 @@ spec:
               protocol: TCP
           imagePullPolicy: {{ .Values.image.pullPolicy }}
   strategy:
-    blueGreen:
+    canary:
+      steps:
+        - setWeight: 20  # 첫 번째 배포 시 20%의 트래픽을 새 버전으로 전환
+        - pause: { duration: 30 }  # 30초 동안 대기
+        - setWeight: 100  # 나머지 80%의 트래픽을 새 버전으로 전환
       activeService: {{ include "hellospring.name" . }}-blue
       previewService: {{ include "hellospring.name" . }}-green
       autoPromotionEnabled: false

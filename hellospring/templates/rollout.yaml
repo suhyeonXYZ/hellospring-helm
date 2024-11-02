@@ -32,8 +32,8 @@ spec:
               port: http
   strategy:
     blueGreen:
-      activeService: {{ include "hellospring.fullname" . }}-blue
-      previewService: {{ include "hellospring.fullname" . }}-green
+      activeService: {{ include "hellospring.name" . }}-blue
+      previewService: {{ include "hellospring.name" . }}-green
       autoPromotionEnabled: false
       scaleDownDelaySeconds: 30
 

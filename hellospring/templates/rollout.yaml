@@ -8,7 +8,7 @@ spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ include "hellospring.name" . }}
+      app: {{ .Values.labels.app }}
   template:
     metadata:
       labels:

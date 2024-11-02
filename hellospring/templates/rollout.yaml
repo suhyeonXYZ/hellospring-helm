@@ -30,11 +30,8 @@ spec:
         - setWeight: 100
       trafficRouting:
         nginx:
-        - setWeight: 20  # 첫 번째 배포 시 20%의 트래픽을 새 버전으로 전환
-        - pause: { duration: 30 }  # 30초 동안 대기
-        - setWeight: 100  # 나머지 80%의 트래픽을 새 버전으로 전환
-      activeService: {{ include "hellospring.name" . }}-active
-      previewService: {{ include "hellospring.name" . }}-canary
+          stableService: {{ include "hellospring.name" . }}-active
+          canaryService: {{ include "hellospring.name" . }}-canary
       autoPromotionEnabled: false
       scaleDownDelaySeconds: 30
 

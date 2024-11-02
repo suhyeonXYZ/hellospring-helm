@@ -1,9 +1,9 @@
 apiVersion: v2
 name: hellospring
-description: A Helm chart for deploying a Spring Boot application
+description: A Helm chart for deploying a Spring Boot application with argorollout
 type: application
 version: 0.1.0
-appVersion: "1.0"  # 애플리케이션의 버전
+appVersion: "1.0" 
 keywords:
   - spring
   - boot

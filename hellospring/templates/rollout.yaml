@@ -1,0 +1,45 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: {{ include "hellospring.name" . }}-rollout
+  labels:
+    app: {{ .Values.labels.app }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ include "hellospring.name" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.labels.app }}
+    spec:
+      containers:
+        - name: {{ include "hellospring.name" . }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          ports:
+            - name: http
+              containerPort: 3000
+          resources:
+            {}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: 3000
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+  strategy:
+    blueGreen:
+      activeService: {{ include "hellospring.fullname" . }}-blue
+      previewService: {{ include "hellospring.fullname" . }}-green
+      autoPromotionEnabled: false 
+      scaleDownDelaySeconds: 30   
+
+

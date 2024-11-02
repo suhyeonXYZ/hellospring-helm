@@ -2,14 +2,15 @@ replicaCount: 1
 
 image:
   repository: suhyeonsong/hellospring
-  pullPolicy: Always
-  tag: latest
-  
- 
+  pullPolicy: IfNotPresent
+  tag: v1.0
 
 service:
   type: ClusterIP
   port: 3000
 
 labels:
-  app: backend
+  app: bluegreen
+
+ingress:
+  path: /hello

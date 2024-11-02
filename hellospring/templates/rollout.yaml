@@ -24,12 +24,13 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
   strategy:
     canary:
+      stableService: {{ include "hellospring.name" . }}-active
+      canaryService: {{ include "hellospring.name" . }}-canary
       steps:
         - setWeight: 20
         - pause: { duration: 30 }
         - setWeight: 100
       trafficRouting:
         nginx:
-          stableService: {{ include "hellospring.name" . }}-active
-          canaryService: {{ include "hellospring.name" . }}-canary
+	  stableIngress: {{ include "hellospring.name" . }}-ingress
       autoPromotionEnabled: false

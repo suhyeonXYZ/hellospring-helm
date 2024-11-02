@@ -22,14 +22,6 @@ spec:
               containerPort: 3000
               protocol: TCP
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          livenessProbe:
-            httpGet:
-              path: /
-              port: http
-          readinessProbe:
-            httpGet:
-              path: /
-              port: http
   strategy:
     blueGreen:
       activeService: {{ include "hellospring.name" . }}-blue

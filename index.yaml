@@ -3,9 +3,9 @@ entries:
   hellospring:
   - apiVersion: v2
     appVersion: "1.0"
-    created: "2024-11-02T16:13:19.106759+09:00"
+    created: "2024-11-02T16:17:10.929918+09:00"
     description: A Helm chart for deploying a Spring Boot application with argorollout
-    digest: a201241011576e37ba263c1833204806ff5ebff1ea5c589847462bf149f7eb26
+    digest: 650f65786cbc6d753e550eb6dcf5493262a672b66070d7294e1dbd8968ea538d
     keywords:
     - spring
     - boot
@@ -17,4 +17,4 @@ entries:
     urls:
     - https://suhyeonxyz.github.io/hellospring-helm/hellospring-0.1.0.tgz
     version: 0.1.0
-generated: "2024-11-02T16:13:19.106363+09:00"
+generated: "2024-11-02T16:17:10.929365+09:00"

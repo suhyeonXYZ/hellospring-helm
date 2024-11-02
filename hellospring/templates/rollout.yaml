@@ -20,13 +20,8 @@ spec:
           ports:
             - name: http
               containerPort: 3000
-          resources:
-            {}
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
-          ports:
-            - name: http
-              containerPort: 3000
               protocol: TCP
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
           livenessProbe:
             httpGet:
               path: /
@@ -39,7 +34,6 @@ spec:
     blueGreen:
       activeService: {{ include "hellospring.fullname" . }}-blue
       previewService: {{ include "hellospring.fullname" . }}-green
-      autoPromotionEnabled: false 
-      scaleDownDelaySeconds: 30   
-
+      autoPromotionEnabled: false
+      scaleDownDelaySeconds: 30
 

@@ -24,13 +24,15 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
   strategy:
     canary:
-      stableService: {{ include "hellospring.name" . }}-active
-      canaryService: {{ include "hellospring.name" . }}-canary
+      stableService: {{ include "hellospring.name" . }}-active  # 안정 서비스 정의
+      canaryService: {{ include "hellospring.name" . }}-canary  # 카나리 서비스 정의
       steps:
-        - setWeight: 20
-        - pause: { duration: 30 }
-        - setWeight: 100
+        - setWeight: 20  # 첫 번째 배포 시 20%의 트래픽을 새 버전으로 전환
+        - pause: { duration: 30 }  # 30초 동안 대기
+        - setWeight: 100  # 나머지 80%의 트래픽을 새 버전으로 전환
       trafficRouting:
         nginx:
-	  stableIngress: {{ include "hellospring.name" . }}-ingress
+          stableService: {{ include "hellospring.name" . }}-active  # 안정 서비스 이름
+          canaryService: {{ include "hellospring.name" . }}-canary  # 카나리 서비스 이름
       autoPromotionEnabled: false
+

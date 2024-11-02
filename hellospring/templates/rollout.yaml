@@ -33,6 +33,5 @@ spec:
       trafficRouting:
         nginx:
           stableService: {{ include "hellospring.name" . }}-active  # 안정 서비스 이름
-          canaryService: {{ include "hellospring.name" . }}-canary  # 카나리 서비스 이름
       autoPromotionEnabled: false
 

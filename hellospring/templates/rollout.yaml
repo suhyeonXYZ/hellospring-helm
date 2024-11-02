@@ -32,6 +32,6 @@ spec:
         - setWeight: 100  # 나머지 80%의 트래픽을 새 버전으로 전환
       trafficRouting:
         nginx:
-          stableService: {{ include "hellospring.name" . }}-active  # 안정 서비스 이름
+          stableIngress: {{ include "hellospring.name" . }}-ingress
       autoPromotionEnabled: false
 

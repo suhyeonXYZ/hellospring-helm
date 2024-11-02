@@ -33,5 +33,3 @@ spec:
           stableService: {{ include "hellospring.name" . }}-active
           canaryService: {{ include "hellospring.name" . }}-canary
       autoPromotionEnabled: false
-      scaleDownDelaySeconds: 30
-
